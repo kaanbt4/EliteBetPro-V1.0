@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteBet Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h1><i class="fas fa-user-shield"></i> EliteBet Admin Paneli</h1>
+                <button id="goToHomeBtn" class="admin-nav-btn">
+                    <i class="fas fa-home"></i> Ana Sayfaya Dön
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Add Match Card -->
+            <section class="admin-card">
+                <h2><i class="fas fa-plus-circle"></i> Yeni Maç Ekle</h2>
+                
+                <div class="form-group">
+                    <label for="homeTeam">Ev Sahibi Takım</label>
+                    <input type="text" id="homeTeam" class="form-input" placeholder="Ör: Fenerbahçe">
+                </div>
+
+                <div class="form-group">
+                    <label for="awayTeam">Deplasman Takımı</label>
+                    <input type="text" id="awayTeam" class="form-input" placeholder="Ör: Galatasaray">
+                </div>
+
+                <div class="form-group">
+                    <label>Kazanma Olasılıkları (%)</label>
+                    <div class="prob-inputs">
+                        <input type="number" id="homeWinProb" class="form-input" placeholder="Ev" min="1" max="99">
+                        <input type="number" id="drawProb" class="form-input" placeholder="Beraberlik" min="1" max="99">
+                        <input type="number" id="awayWinProb" class="form-input" placeholder="Deplasman" min="1" max="99">
+                    </div>
+                </div>
+
+                <button id="calculateOddsBtn" class="admin-btn calculate-btn">
+                    <i class="fas fa-calculator"></i> Oranları Hesapla
+                </button>
+
+                <div id="oddsPreview" class="odds-preview">
+                    <div class="preview-placeholder">
+                        <i class="fas fa-arrow-up"></i>
+                        <p>Oranları görmek için hesapla butonuna basın</p>
+                    </div>
+                </div>
+
+                <button id="addMatchBtn" class="admin-btn submit-btn">
+                    <i class="fas fa-check"></i> Maçı Ekle
+                </button>
+            </section>
+
+            <!-- Settle Match Card -->
+            <section class="admin-card">
+                <h2><i class="fas fa-flag-checkered"></i> Maç Sonuçlandır</h2>
+                
+                <div class="form-group">
+                    <label for="matchSelect">Maç Seçin</label>
+                    <select id="matchSelect" class="form-select">
+                        <option value="">-- Maç Seçin --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Skor</label>
+                    <div class="score-inputs">
+                        <input type="number" id="homeScore" class="form-input" placeholder="Ev" min="0">
+                        <span class="score-separator">-</span>
+                        <input type="number" id="awayScore" class="form-input" placeholder="Deplasman" min="0">
+                    </div>
+                </div>
+
+                <button id="settleMatchBtn" class="admin-btn submit-btn">
+                    <i class="fas fa-check-double"></i> Sonuçlandır
+                </button>
+            </section>
+
+            <!-- Stats Card -->
+            <section class="admin-card stats-card">
+                <h2><i class="fas fa-chart-pie"></i> Sistem İstatistikleri</h2>
+                
+                <div class="stat-item">
+                    <span><i class="fas fa-running"></i> Aktif Maç</span>
+                    <strong id="activeMatchesCount">0</strong>
+                </div>
+                
+                <div class="stat-item">
+                    <span><i class="fas fa-ticket-alt"></i> Toplam Bahis</span>
+                    <strong id="totalBetsCount">0</strong>
+                </div>
+                
+                <div class="stat-item">
+                    <span><i class="fas fa-wallet"></i> Toplam Bakiye</span>
+                    <strong id="totalBalance">1,000.00 ₺</strong>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

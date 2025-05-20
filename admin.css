@@ -1,0 +1,228 @@
+/* Admin Özel Stilleri */
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.admin-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.admin-nav-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.admin-nav-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.admin-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.admin-card h2 {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1a1a2e;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-input:focus, .form-select:focus {
+    border-color: #4361ee;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.prob-inputs, .score-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.prob-inputs input, .score-inputs input {
+    flex: 1;
+}
+
+.score-separator {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.admin-btn {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.calculate-btn {
+    background: #4cc9f0;
+    color: white;
+}
+
+.calculate-btn:hover {
+    background: #3aa8d8;
+    transform: translateY(-2px);
+}
+
+.submit-btn {
+    background: #4361ee;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: #3a0ca3;
+    transform: translateY(-2px);
+}
+
+.odds-preview {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px dashed #ddd;
+}
+
+.preview-placeholder {
+    text-align: center;
+    color: #6c757d;
+}
+
+.preview-placeholder i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #adb5bd;
+}
+
+.odds-result {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.odds-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.odds-row span {
+    color: #6c757d;
+}
+
+.odds-row strong {
+    color: #1a1a2e;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
+    color: white;
+}
+
+.stats-card h2 {
+    color: white;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-item span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-item strong {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .prob-inputs, .score-inputs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .score-separator {
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+}
