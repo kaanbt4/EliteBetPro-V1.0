@@ -190,11 +190,13 @@ body {
     gap: 1rem;
 }
 
+/* Match Cards */
 .match-card {
     border: 1px solid var(--light-gray);
     border-radius: 8px;
     padding: 1.2rem;
     transition: all 0.3s;
+    margin-bottom: 1.5rem;
 }
 
 .match-card:hover {
@@ -228,11 +230,42 @@ body {
     font-weight: bold;
 }
 
+.bet-categories {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+}
+
+.bet-category {
+    padding: 0.4rem 0.8rem;
+    background: var(--light-gray);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bet-category.active {
+    background: var(--primary);
+    color: white;
+}
+
+.bet-option-group {
+    display: none;
+}
+
+.bet-option-group.active {
+    display: block;
+}
+
 .match-odds {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .match-odds button {
@@ -254,10 +287,11 @@ body {
 
 .match-odds button span:first-child {
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .match-odds button span:last-child {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-top: 3px;
 }
 
@@ -345,6 +379,264 @@ body {
     color: var(--light-gray);
 }
 
+/* Bet Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bet-modal {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    transition: all 0.3s;
+}
+
+.modal-overlay.active .bet-modal {
+    transform: translateY(0);
+}
+
+.bet-modal-header {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bet-modal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bet-modal-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+}
+
+.bet-modal-close:hover {
+    transform: rotate(90deg);
+}
+
+.bet-modal-body {
+    padding: 1.5rem;
+}
+
+.bet-details {
+    margin-bottom: 1.5rem;
+}
+
+.bet-teams {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.bet-selection {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    background: var(--light);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.bet-selection-name {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.bet-selection-odds {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.bet-amount-container {
+    margin-top: 1.5rem;
+}
+
+.bet-amount-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.bet-amount-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.bet-amount-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.bet-amount-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.amount-btn {
+    background: var(--light);
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    padding: 0.5rem;
+    flex: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.amount-btn:hover {
+    background: var(--light-gray);
+}
+
+.potential-win {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--light);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.potential-win-label {
+    font-weight: 600;
+    color: var(--gray);
+}
+
+.potential-win-amount {
+    color: var(--success);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.bet-modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+}
+
+.bet-cancel-btn {
+    background: var(--light);
+    color: var(--gray);
+    border: 1px solid var(--light-gray);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bet-cancel-btn:hover {
+    background: var(--light-gray);
+}
+
+.bet-confirm-btn {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.bet-confirm-btn:hover {
+    background: var(--success);
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.bet-error {
+    color: var(--danger);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.bet-error.active {
+    display: block;
+}
+
+/* Clear Bets Button */
+.clear-bets-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.clear-bets-btn {
+    background-color: var(--light);
+    border: 1px solid var(--light-gray);
+    color: var(--gray);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+}
+
+.clear-bets-btn:hover {
+    background-color: var(--light-gray);
+    color: var(--dark);
+}
+
+.clear-bets-btn i {
+    font-size: 0.8rem;
+}
+
+/* Balance updated animation */
+.balance-updated {
+    animation: balance-pulse 1s;
+}
+
+@keyframes balance-pulse {
+    0% { color: var(--dark); }
+    50% { color: var(--success); }
+    100% { color: var(--dark); }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .matches-grid {
@@ -360,5 +652,25 @@ body {
     .balance-info {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .match-odds {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .match-odds button span:first-child {
+        font-size: 0.8rem;
+    }
+    
+    .match-odds button span:last-child {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bet-categories {
+        flex-wrap: wrap;
     }
 }

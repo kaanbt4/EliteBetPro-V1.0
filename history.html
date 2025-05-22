@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteBet - Bahis Geçmişi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-coins"></i>
+                <h1>EliteBet <span>PRO</span></h1>
+            </div>
+            <nav>
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-home"></i> Ana Sayfa
+                </a>
+                <a href="login.html" class="nav-btn">
+                    <i class="fas fa-user-cog"></i> Admin
+                </a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="history-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Bahis Geçmişi</h2>
+                    <div class="history-filter">
+                        <button class="filter-btn active" data-filter="all">Tümü</button>
+                        <button class="filter-btn" data-filter="won">Kazananlar</button>
+                        <button class="filter-btn" data-filter="lost">Kaybedenler</button>
+                    </div>
+                </div>
+                
+                <div class="history-search">
+                    <input type="text" id="historySearch" placeholder="Takım adına göre ara...">
+                </div>
+                
+                <div id="betHistory" class="bet-history-list">
+                    <!-- Dinamik olarak dolacak -->
+                </div>
+                
+                <div class="history-stats">
+                    <div class="stat-item">
+                        <span>Toplam Bahis:</span>
+                        <strong id="totalHistoryCount">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Kazanç/Kayıp:</span>
+                        <strong id="totalProfitLoss">0.00 ₺</strong>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2023 EliteBet Pro | Tüm hakları saklıdır</p>
+        </footer>
+    </div>
+
+    <script src="history.js"></script>
+</body>
+</html>
