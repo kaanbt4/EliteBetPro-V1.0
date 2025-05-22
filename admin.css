@@ -149,6 +149,8 @@
     padding: 1rem;
     margin: 1rem 0;
     border: 1px dashed #ddd;
+    max-height: 350px;
+    overflow-y: auto;
 }
 
 .preview-placeholder {
@@ -164,12 +166,29 @@
 
 .odds-result {
     display: grid;
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.odds-category {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.odds-category h3 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    color: #3a0ca3;
+    font-size: 0.9rem;
 }
 
 .odds-row {
     display: flex;
     justify-content: space-between;
+    padding: 5px 0;
 }
 
 .odds-row span {
@@ -210,6 +229,58 @@
     font-size: 1.1rem;
 }
 
+/* Manuel Oran Girişleri için Yeni Stiller */
+.form-section {
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.form-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+}
+
+.odds-input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.odds-input-row {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.odds-input-row span {
+    width: 100px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.odds-input-row input {
+    flex: 1;
+}
+
+/* Yeni Çıktı */
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.logout-btn {
+    background: rgba(247, 37, 133, 0.1);
+    color: #f72585;
+}
+
+.logout-btn:hover {
+    background: rgba(247, 37, 133, 0.2);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .admin-main {
@@ -224,5 +295,10 @@
     .score-separator {
         justify-content: center;
         padding: 0.5rem 0;
+    }
+
+    .odds-input-group {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }

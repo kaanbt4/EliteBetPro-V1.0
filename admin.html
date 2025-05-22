@@ -13,9 +13,14 @@
         <header class="admin-header">
             <div class="admin-header-content">
                 <h1><i class="fas fa-user-shield"></i> EliteBet Admin Paneli</h1>
-                <button id="goToHomeBtn" class="admin-nav-btn">
-                    <i class="fas fa-home"></i> Ana Sayfaya Dön
-                </button>
+                <div class="header-buttons">
+                    <button id="goToHomeBtn" class="admin-nav-btn">
+                        <i class="fas fa-home"></i> Ana Sayfaya Dön
+                    </button>
+                    <button id="logoutBtn" class="admin-nav-btn logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -45,13 +50,96 @@
                 </div>
 
                 <button id="calculateOddsBtn" class="admin-btn calculate-btn">
-                    <i class="fas fa-calculator"></i> Oranları Hesapla
+                    <i class="fas fa-calculator"></i> Maç Sonuç Oranlarını Hesapla
                 </button>
 
                 <div id="oddsPreview" class="odds-preview">
                     <div class="preview-placeholder">
                         <i class="fas fa-arrow-up"></i>
-                        <p>Oranları görmek için hesapla butonuna basın</p>
+                        <p>Maç sonuç oranlarını görmek için hesapla butonuna basın</p>
+                    </div>
+                </div>
+                
+                <!-- Manuel Oran Girişleri -->
+                <div class="form-section">
+                    <h3><i class="fas fa-sliders-h"></i> Diğer Oranları Manuel Gir</h3>
+                    
+                    <div class="form-group">
+                        <label>Alt/Üst Oranları</label>
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>1.5 Alt:</span>
+                                <input type="number" id="under15" class="form-input" step="0.01" min="1" placeholder="Ör: 2.40">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>1.5 Üst:</span>
+                                <input type="number" id="over15" class="form-input" step="0.01" min="1" placeholder="Ör: 1.55">
+                            </div>
+                        </div>
+                        
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>2.5 Alt:</span>
+                                <input type="number" id="under25" class="form-input" step="0.01" min="1" placeholder="Ör: 1.70">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>2.5 Üst:</span>
+                                <input type="number" id="over25" class="form-input" step="0.01" min="1" placeholder="Ör: 2.10">
+                            </div>
+                        </div>
+                        
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>3.5 Alt:</span>
+                                <input type="number" id="under35" class="form-input" step="0.01" min="1" placeholder="Ör: 1.45">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>3.5 Üst:</span>
+                                <input type="number" id="over35" class="form-input" step="0.01" min="1" placeholder="Ör: 2.70">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Karşılıklı Gol</label>
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>KG Var:</span>
+                                <input type="number" id="btts_yes" class="form-input" step="0.01" min="1" placeholder="Ör: 1.80">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>KG Yok:</span>
+                                <input type="number" id="btts_no" class="form-input" step="0.01" min="1" placeholder="Ör: 1.95">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>İlk Yarı</label>
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>İY 0.5 Alt:</span>
+                                <input type="number" id="firstHalfUnder05" class="form-input" step="0.01" min="1" placeholder="Ör: 1.85">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>İY 0.5 Üst:</span>
+                                <input type="number" id="firstHalfOver05" class="form-input" step="0.01" min="1" placeholder="Ör: 1.95">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Korner</label>
+                        <div class="odds-input-group">
+                            <div class="odds-input-row">
+                                <span>Korner 9.5 Alt:</span>
+                                <input type="number" id="cornersUnder95" class="form-input" step="0.01" min="1" placeholder="Ör: 1.90">
+                            </div>
+                            <div class="odds-input-row">
+                                <span>Korner 9.5 Üst:</span>
+                                <input type="number" id="cornersOver95" class="form-input" step="0.01" min="1" placeholder="Ör: 1.90">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -72,12 +160,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Skor</label>
+                    <label>Maç Skoru</label>
                     <div class="score-inputs">
                         <input type="number" id="homeScore" class="form-input" placeholder="Ev" min="0">
                         <span class="score-separator">-</span>
                         <input type="number" id="awayScore" class="form-input" placeholder="Deplasman" min="0">
                     </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>İlk Yarı Skoru</label>
+                    <div class="score-inputs">
+                        <input type="number" id="firstHalfHome" class="form-input" placeholder="Ev" min="0">
+                        <span class="score-separator">-</span>
+                        <input type="number" id="firstHalfAway" class="form-input" placeholder="Deplasman" min="0">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cornerCount">Toplam Korner Sayısı</label>
+                    <input type="number" id="cornerCount" class="form-input" placeholder="Korner sayısı" min="0">
                 </div>
 
                 <button id="settleMatchBtn" class="admin-btn submit-btn">
